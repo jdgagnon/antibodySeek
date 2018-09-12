@@ -25,10 +25,14 @@ ui <- fluidPage(
         label = "Google Sheets Spreadsheet Name:",
         value = NULL
       ),
-      textInput(
+      actionButton(
+        inputId = "getGoogleSheets",
+        label = "Find Google Sheet"
+      ),
+      selectInput(
         inputId = "googleSheetsWS",
         label = "Google Sheets Worksheet Name:",
-        value = NULL
+        choices = NULL
       ),
       
       
@@ -51,7 +55,7 @@ server <- function(input, output, session) {
   ABdb <- reactiveVal(NULL)
   ABtable <- reactiveVal(NULL)
   
-  observeEvet({
+  observeEvent({
     input$file}, {
       req(input$file)
       
@@ -75,6 +79,16 @@ server <- function(input, output, session) {
   })
   
   observeEvent({
+    input$getGoogleSheets}, {
+      req(input$googleSheetsSS)
+      sheets <- googlesheets::gs_ws_ls(
+        ss = googlesheets::gs_title(input$googleSheetsSS))
+      updateSelectInput(session,
+                        inputId = "googleSheetsWS",
+                        choices = sheets)
+  })
+  
+  observeEvent({
     input$googleSheetsSS
     input$googleSheetsWS}, {
       
@@ -83,7 +97,7 @@ server <- function(input, output, session) {
       
       df <- tidyr::gather(googlesheets::gs_read(
         ss = googlesheets::gs_title(input$googleSheetsSS), 
-        ws = intput$googleSheetsWS), 
+        ws = input$googleSheetsWS), 
         Fluorophore, 
         value, 
         -Antibodies)

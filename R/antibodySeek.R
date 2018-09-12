@@ -11,7 +11,7 @@
 #' @importFrom readr  write_csv read_csv
 #' @importFrom tidyr gather spread
 #' @importFrom stats na.omit
-#' @return Table antibodies and the fluorophores available in the Ansel Lab
+#' @return Table of antibodies and the fluorophores available
 #' @param ... Any argument that you can pass to shiny::runApp
 #' @examples
 #' # antibodySeek()

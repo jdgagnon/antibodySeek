@@ -2,7 +2,7 @@
 ui <- fluidPage(
   
   # App title ----
-  titlePanel("Ansel Lab Antibody DB"),
+  titlePanel("antibodySeek"),
   
   # Sidebar layout with input and output definitions ----
   sidebarLayout(

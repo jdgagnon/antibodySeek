@@ -48,6 +48,31 @@ and run it.
 
 `antibodySeek()`
 
+1.  Load a spreadsheet containing the antibody database:
+
+<!-- end list -->
+
+  - Spreadsheet must be in the following format:
+
+| Antibody | PE | FITC | etc… |
+| :------: | :-: | :--: | :--: |
+|   CD3    | X  |      |      |
+|   CD4    |    |  X   |  X   |
+|   CD8    | X  |  X   |  X   |
+
+  - Use the file browser to select a `csv` file
+
+OR
+
+  - Load a spreadsheet from `Google Sheets` by filling out the
+    spreadsheet name and clicking `Find Google Sheet`.
+
+  - Choose the approprate worksheet
+
+<!-- end list -->
+
+2.  Select the antibodies from the dropdown menu that you wish to use.
+
 ## Session info
 
 Here is the output of `sessionInfo()` on the system on which this
@@ -72,8 +97,8 @@ sessionInfo()
 #> loaded via a namespace (and not attached):
 #>  [1] compiler_3.5.1  backports_1.1.2 magrittr_1.5    rprojroot_1.3-2
 #>  [5] tools_3.5.1     htmltools_0.3.6 yaml_2.2.0      Rcpp_0.12.18   
-#>  [9] stringi_1.2.4   rmarkdown_1.10  knitr_1.20      stringr_1.3.1  
-#> [13] digest_0.6.16   evaluate_0.11
+#>  [9] stringi_1.2.4   rmarkdown_1.10  highr_0.7       knitr_1.20     
+#> [13] stringr_1.3.1   digest_0.6.16   evaluate_0.11
 ```
 
 <br><br>

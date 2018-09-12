@@ -55,6 +55,31 @@ and run it.
 
 `antibodySeek()`
 
+1. Load a spreadsheet containing the antibody database:
+
+* Spreadsheet must be in the following format:
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::kable(
+  matrix(c("CD3", "X", "", "",
+           "CD4", "", "X", "X",
+           "CD8", "X", "X", "X"), 
+         ncol = 4, byrow = TRUE), 
+  col.names = c("Antibody", "PE", "FITC", "etc..."), 
+  align = "c")
+```
+
+* Use the file browser to select a `csv` file 
+
+OR
+
+* Load a spreadsheet from 
+`Google Sheets` by filling out the spreadsheet name and clicking 
+`Find Google Sheet`. 
+
+* Choose the approprate worksheet
+
+2. Select the antibodies from the dropdown menu that you wish to use.
 
 ## Session info
 

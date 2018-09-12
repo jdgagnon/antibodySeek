@@ -1,11 +1,10 @@
 Package: antibodySeek
-Title: Create a table of antibodies available in the Ansel Lab
+Title: Create a table of antibodies available.
 Version: 0.99.00
 Authors@R: person("John D.", "Gagnon", 
   email = "john.gagnon.42@gmail.com", 
   role = c("aut", "cre"))
-Description: A shiny app-based GUI to create a table of antibodies available in 
-  the Ansel Lab.
+Description: A shiny app-based GUI to create a table of antibodies available.
 Depends: R (>= 3.5)
 Imports: 
     dplyr (>= 0.7.6), 

@@ -4,7 +4,7 @@
 #' A function to create table of antibodies
 #'
 #' This function takes a list of antibodies and returns a table of fluorophores
-#' for each antibody that are available in the Ansel lab
+#' for each antibody that are available
 #' @import shiny
 #' @import dplyr
 #' @import googlesheets
@@ -14,7 +14,7 @@
 #' @importFrom stats na.omit
 #' @param spreadsheet spreadsheet of antibodies
 #' @param antibodies list of antibodies to search for
-#' @return Table antibodies and the fluorophores available in the Ansel Lab
+#' @return Table antibodies and the fluorophores available
 #' @examples
 #' file <- antibodySeek::readData_example(path = "antibodies.csv")
 #' spreadsheet <- readr::read_csv(file, col_names = TRUE)

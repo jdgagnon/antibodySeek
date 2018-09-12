@@ -20,7 +20,7 @@ ui <- fluidPage(
       textInput(
         inputId = "googleSheetsSS",
         label = "Google Sheets Spreadsheet Name:",
-        value = NULL
+        value = "Ansel lab FACs Antibodies"
       ),
       actionButton(
         inputId = "getGoogleSheets",

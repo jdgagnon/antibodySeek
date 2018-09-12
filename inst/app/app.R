@@ -54,7 +54,7 @@ server <- function(input, output, session) {
     input$antibodies}, {
       req(input$antibodies,
           ABdb())
-      db <- get_panel(ABdb(), input$antibodies)
+      db <- antibodySeek::get_panel(ABdb(), input$antibodies)
       ABtable(db)
   })
   

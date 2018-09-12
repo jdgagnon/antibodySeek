@@ -12,6 +12,25 @@ ui <- fluidPage(
     
     # Sidebar panel for inputs ----
     sidebarPanel(
+      # Input file
+      fileInput(
+        inputId = "file",
+        label = "File Upload:",
+        accept = c(".csv")
+      ),
+      
+      # Or input google sheets information
+      textInput(
+        inputId = "googleSheetsSS",
+        label = "Google Sheets Spreadsheet Name:",
+        value = NULL
+      ),
+      textInput(
+        innputID = "googleSheetsWS",
+        label = "Google Sheets Worksheet Name:",
+        value = NULL
+      ),
+      
       
       # Input: Antibodies
       uiOutput("antibody"),
@@ -32,25 +51,58 @@ server <- function(input, output, session) {
   ABdb <- reactiveVal(NULL)
   ABtable <- reactiveVal(NULL)
   
-  df <- tidyr::gather(googlesheets::gs_read(
-    ss = googlesheets::gs_title('Ansel lab FACs Antibodies'), 
-    ws = 'Mouse Antibodies'), 
-    Fluorophore, 
-    value, 
-    -Antibodies)
-  
-  df$Fluorophore <- factor(df$Fluorophore, 
-                           levels = unique(df$Fluorophore))
-  
-  output$antibody <- renderUI({
-  selectInput("antibodies",
-              "Select antibodies to display:",
-              choices = df$Antibodies,
-              multiple = TRUE)
+  observeEvet({
+    input$file}, {
+      req(input$file)
+      
+      df <- tidyr::gather(readr::read_csv(input$file$datapath, 
+                                          col_names = TRUE), 
+        Fluorophore, 
+        value, 
+        -Antibodies)
+      
+      df$Fluorophore <- factor(df$Fluorophore, 
+                               levels = unique(df$Fluorophore))
+      
+      output$antibody <- renderUI({
+        selectInput("antibodies",
+                    "Select antibodies to display:",
+                    choices = df$Antibodies,
+                    multiple = TRUE)
+      })
+      ABdb(df)
+      
   })
-  ABdb(df)
   
   observeEvent({
+    input$googleSheetsSS
+    input$googleSheetsWS}, {
+      
+      req(input$googleSheetsSS,
+          input$googleSheetsWS)
+      
+      df <- tidyr::gather(googlesheets::gs_read(
+        ss = googlesheets::gs_title(input$googleSheetsSS), 
+        ws = intput$googleSheetsWS), 
+        Fluorophore, 
+        value, 
+        -Antibodies)
+      
+      df$Fluorophore <- factor(df$Fluorophore, 
+                               levels = unique(df$Fluorophore))
+      
+      output$antibody <- renderUI({
+        selectInput("antibodies",
+                    "Select antibodies to display:",
+                    choices = df$Antibodies,
+                    multiple = TRUE)
+      })
+      ABdb(df)
+  })
+
+  
+  observeEvent({
+    ABdb()
     input$antibodies}, {
       req(input$antibodies,
           ABdb())

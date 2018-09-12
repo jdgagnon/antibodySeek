@@ -26,7 +26,7 @@ ui <- fluidPage(
         value = NULL
       ),
       textInput(
-        innputID = "googleSheetsWS",
+        inputID = "googleSheetsWS",
         label = "Google Sheets Worksheet Name:",
         value = NULL
       ),

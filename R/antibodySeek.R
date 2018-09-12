@@ -19,7 +19,7 @@
 #' @export
 antibodySeek <- function(...)
 {
-  appDir <- system.file("inst/app", package = "antibodySeek")
+  appDir <- system.file("app", package = "antibodySeek")
   if (appDir == "") {
     stop("Could not find directory. Try re-installing antibodySeek",
          call. = FALSE)

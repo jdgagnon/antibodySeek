@@ -19,5 +19,14 @@ This function takes a list of antibodies and returns a table of fluorophores
 for each antibody that are available in the Ansel lab
 }
 \examples{
-get_panel(antibodies)
+file <- antibodySeek::readData_example(path = "antibodies.csv")
+spreadsheet <- readr::read_csv(file, col_names = TRUE)
+spreadsheet <- tidyr::gather(spreadsheet,
+Fluorophore, 
+value, 
+-Antibodies)
+spreadsheet$Fluorophore <- factor(spreadsheet$Fluorophore,
+levels = unique(spreadsheet$Fluorophore))
+antibodies <- c("CD3", "CD4", "CD8", "Foxp3")
+antibodySeek::get_panel(spreadsheet, antibodies)
 }

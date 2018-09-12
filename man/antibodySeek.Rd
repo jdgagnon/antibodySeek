@@ -8,8 +8,6 @@ antibodySeek(...)
 }
 \arguments{
 \item{...}{Any argument that you can pass to shiny::runApp}
-
-\item{antibodies}{list of antibodies to search for}
 }
 \value{
 Table antibodies and the fluorophores available in the Ansel Lab

@@ -8,9 +8,9 @@
 #' @import dplyr
 #' @import googlesheets
 #' @rawNamespace import(Hmisc, except = c(summarize, src))
-#' @importFrom readr  write_csv
+#' @importFrom readr  write_csv read_csv
 #' @importFrom tidyr gather spread
-#' @param antibodies list of antibodies to search for
+#' @importFrom stats na.omit
 #' @return Table antibodies and the fluorophores available in the Ansel Lab
 #' @param ... Any argument that you can pass to shiny::runApp
 #' @examples
@@ -19,7 +19,7 @@
 #' @export
 antibodySeek <- function(...)
 {
-  appDir <- system.file("app", package = "antibodySeek")
+  appDir <- system.file("inst/app", package = "antibodySeek")
   if (appDir == "") {
     stop("Could not find directory. Try re-installing antibodySeek",
          call. = FALSE)

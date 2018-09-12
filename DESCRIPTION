@@ -5,16 +5,18 @@ Authors@R: person("John D.", "Gagnon",
   email = "john.gagnon.42@gmail.com", 
   role = c("aut", "cre"))
 Description: A shiny app-based GUI to create a table of antibodies available in 
-  the Ansel Lab
+  the Ansel Lab.
 Depends: R (>= 3.5)
 Imports: 
     dplyr (>= 0.7.6), 
     tidyr (>= 0.2.0), 
     readr (>= 1.1.1), 
+    googlesheets (>= 0.3.0),
     readxl (>= 1.1.0), 
     shiny (>= 1.1.0), 
     magrittr (>= 1.5), 
-    Hmisc (>= 4.1.1), 
+    Hmisc (>= 4.1.1),
+    stats
 Suggests: 
     knitr,
     htmltools,

@@ -55,10 +55,10 @@ and run it.
   - Spreadsheet must be in the following format:
 
 | Antibody | PE | FITC | etc… |
-| :------: | :-: | :--: | :--: |
-|   CD3    | X  |      |      |
-|   CD4    |    |  X   |  X   |
-|   CD8    | X  |  X   |  X   |
+| :------- | :- | :--- | :--- |
+| CD3      | X  |      |      |
+| CD4      |    | X    | X    |
+| CD8      | X  | X    | X    |
 
   - Use the file browser to select a `csv` file
 
@@ -98,7 +98,7 @@ sessionInfo()
 #>  [1] compiler_3.5.1  backports_1.1.2 magrittr_1.5    rprojroot_1.3-2
 #>  [5] tools_3.5.1     htmltools_0.3.6 yaml_2.2.0      Rcpp_0.12.18   
 #>  [9] stringi_1.2.4   rmarkdown_1.10  highr_0.7       knitr_1.20     
-#> [13] stringr_1.3.1   digest_0.6.16   evaluate_0.11
+#> [13] stringr_1.3.1   digest_0.6.17   evaluate_0.11
 ```
 
 <br><br>

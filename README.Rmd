@@ -65,8 +65,7 @@ knitr::kable(
            "CD4", "", "X", "X",
            "CD8", "X", "X", "X"), 
          ncol = 4, byrow = TRUE), 
-  col.names = c("Antibody", "PE", "FITC", "etc..."), 
-  align = "c")
+  col.names = c("Antibody", "PE", "FITC", "etc..."))
 ```
 
 * Use the file browser to select a `csv` file 
